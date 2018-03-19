@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+h1, h2, h3{
+    font-family: 'Indie Flower', cursive;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+.jumbotron {
+    background-image: url(../../sergei-akulich-39911-unsplash.jpg);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 600px;
+    text-align: center;
+    color: white;
+    margin-bottom: 0;
+}
+
+.center {
+    padding-top: 100px;
+}
+
+.center a {
+    margin-top: 30px;
+}
+
+.banner {
+    text-align: center;
+    background-color: #dbe9d8;
+    height: 50px;
+    vertical-align: middle;
+    line-height: 50px;
+    margin-bottom: 50px;
+}
+
+.banner button {
+    display: inline;
+}
+
+.banner p {
+    display: inline;
+}
+
+.slogan-container {
+    height: 180px;
+    text-align: center;
+    background-color: #dbe9d8;  
+    margin-bottom: 50px;
+}
+
+.slogan {
+
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
