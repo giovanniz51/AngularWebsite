@@ -1,0 +1,18 @@
+[33mcommit 8922ed2e01664e9a448230d3c5632e65da6c3e08[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Giovanni <giannizito@msn.com>
+Date:   Mon Mar 19 15:46:27 2018 +0000
+
+    First Commit
+
+[33mcommit c5507a84ea32e9519fe17a13d2735ca0b48c46c6[m
+Author: Angular CLI <angular-cli@angular.io>
+Date:   Mon Mar 19 09:47:02 2018 +0000
+
+    chore: initial commit from @angular/cli
+    
+        _                      _                 ____ _     ___
+       / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+      / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+     / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+    /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                   |___/
