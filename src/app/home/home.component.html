@@ -2,12 +2,59 @@
     <div class="center">
       <h1>Save the Forest!</h1>
       <p>We love the nature. So we do our best to save it. Come and help us!</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
     </div>
 </div>
+
 <div class="banner">
     <p><strong>You are looking for up-to-date Information?</strong></p>
-    <button class="btn btn-success">Sign in to our Newsletter</button>
+    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Sign in to our Newsletter</button>
+    
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Enter your Email for Newsletter</h4>
+        </div>
+        <div class="modal-body">
+          <p>Your Email:</p>
+          <input [(ngModel)]="email" type="text" name="email" placeholer="Your Email.."/>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="logEmail()" data-toggle="modal" data-target="#successModal">Send</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+    <!-- Modal -->
+  <div class="modal fade" id="successModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thank You!</h4>
+        </div>
+        <div class="modal-body">
+          <p>You registered for the Newsletter! Thank You!</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+
 </div>
 <div class="container">
     <div class="row">

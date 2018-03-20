@@ -1,0 +1,13 @@
+h1, h2, h3{
+    font-family: 'Indie Flower', cursive;
+}
+
+.jumbotron {
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 600px;
+    text-align: center;
+    color: white;
+    margin-bottom: 60px;
+}

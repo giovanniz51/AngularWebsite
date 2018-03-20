@@ -1,0 +1,25 @@
+<div class="jumbotron" [ngStyle]="{'background-image': 'url(' + forest.img + ')'}">
+    <div class="center">
+      <h1>{{ forest.name }}</h1>
+      <p>Location: {{ forest.location }}</p>
+    </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+    <div class="page-header">
+      <h1>{{ forest.name }} <small>Location: {{ forest.location }}</small></h1>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-md-4">
+        <a href="#" class="thumbnail">
+          <img src="{{ forest.img }}" alt="{{ forest.name }}">
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-8">
+      <p> {{ forest.description }}</p>
+    </div>
+  </div>
+</div>

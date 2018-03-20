@@ -11,23 +11,28 @@
     
     <span class="input-group-addon" id="basic-addon3">Name</span>
     <input [(ngModel)]="name" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">  
-    
-    <span class="input-group-addon" id="basic-addon3">Location</span>
-    <input [(ngModel)]="location" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">  
-    
+
     <span class="input-group-addon" id="basic-addon3">Img URL</span>
-    <input [(ngModel)]="img" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-    
+    <input [(ngModel)]="img" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">    
+ 
   </div>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon3">Location</span>
+    <input [(ngModel)]="location" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"> 
+
+    <span class="input-group-addon" id="basic-addon3">Description</span>
+    <input [(ngModel)]="description" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  </div> 
+  
  <button style="width: 100%; margin-top:10px;" class="btn btn-success" (click)="addForests()">Add</button>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-md-4" *ngFor="let forest of forests">
-      <div class="thumbnail">
+      <div class="thumbnail"  style="cursor: pointer;" (click)="showForest(forest)">
         <img src="{{ forest.img }}" alt=" {{ forest.name }}">
-        <div class="caption">
+       <div class="caption">
           <h3>{{ forest.name }}</h3>
           <p>Location: {{ forest.location }}</p>
         </div>

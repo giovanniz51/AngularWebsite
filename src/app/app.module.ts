@@ -12,12 +12,16 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ForestsComponent } from './forests/forests.component';
 import { ForestsService } from './forests.service';
+import { ForestEditComponent } from './forest-edit/forest-edit.component';
+import { ForestShowComponent } from './forest-show/forest-show.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'about', component: AboutComponent},
   { path: 'contact', component: ContactComponent},
-  { path: 'forests', component: ForestsComponent}
+  { path: 'forests', component: ForestsComponent},
+  { path: 'forests/:id', component: ForestShowComponent},
+  { path: 'forests/:id/edit', component: ForestEditComponent}
   
   ];
 
@@ -30,7 +34,9 @@ const appRoutes: Routes = [
     ContactComponent,
     HeaderComponent,
     FooterComponent,
-    ForestsComponent
+    ForestsComponent,
+    ForestEditComponent,
+    ForestShowComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

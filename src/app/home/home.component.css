@@ -34,7 +34,6 @@ h2 {
 .banner {
     text-align: center;
     background-color: #dbe9d8;
-    height: 50px;
     vertical-align: middle;
     line-height: 50px;
     margin-bottom: 50px;
@@ -49,16 +48,14 @@ h2 {
 }
 
 .slogan-container {
-    height: 180px;
     text-align: center;
     background-color: #dbe9d8;  
     margin-bottom: 50px;
 }
 
 .slogan {
-
-    position: relative;
-    top: 40%;
-    transform: translateY(-50%);
+    padding-bottom: 20px;
+    padding-top: 20px;
+ 
 }
 
