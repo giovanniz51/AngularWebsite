@@ -44,6 +44,7 @@ export class ForestsComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.id = Math.floor(Math.random() * 20);
     this.forestsService.addForests(form.value.name, form.value.location, form.value.imagePath, this.id, form.value.description);
+    form.reset();
   }
   
 }
