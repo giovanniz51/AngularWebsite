@@ -11,19 +11,18 @@ import { Forest } from '../forest';
 export class ForestShowComponent implements OnInit {
   
   forest: Forest;
-  id: number;
 
-  constructor(private router: Router, private route: ActivatedRoute, private forestsService: ForestsService ) { }
+  constructor(private forestsService: ForestsService ) { }
 
   ngOnInit() {
-    this.route.params
+    this.forestsService.forestShow
       .subscribe(
-        (params: Params) => {
-          this.id = +params['id'];
+        (forest) => {
+          this.forest = forest;
+          
         }  
       )
-    let forests = this.forestsService.getForests();
-    this.forest = forests.find(forest => forest.id==this.id);
+
   }
   
 

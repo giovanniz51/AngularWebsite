@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ForestsService } from '../forests.service';
 import { Forest } from '../forest';
+
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -11,15 +13,11 @@ import { Forest } from '../forest';
 })
 export class ForestsComponent implements OnInit {
   
+  
   forests: Forest[]; 
   
-  name: string;
-  location: string;
-  img: string;
   id: number;
-  description: string;
-  
-  forest: Forest;
+
   
   
   
@@ -38,17 +36,14 @@ export class ForestsComponent implements OnInit {
 
   }
   
-  addForests(){
-    this.id = Math.floor(Math.random() * 20);
-    this.forestsService.addForests(this.name, this.location, this.img, this.id, this.description);
+  onShowForest(forest: Forest) {
+    this.forestsService.showForest(forest);
+    this.router.navigate([forest.id], {relativeTo: this.route});
   }
   
-  showForest(forest: Forest) {
-    this.forest = forest;
-    let forestId = forest ? forest.id : null;
-    // Pass along the forest id if available
-    // so that the Forest component can select that forest.
-    this.router.navigate([forestId], {relativeTo: this.route});
+  onSubmit(form: NgForm) {
+    this.id = Math.floor(Math.random() * 20);
+    this.forestsService.addForests(form.value.name, form.value.location, form.value.imagePath, this.id, form.value.description);
   }
   
 }

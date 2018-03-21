@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Forest } from './forest';
 
+import { BehaviorSubject  } from 'rxjs/BehaviorSubject';
+
 @Injectable()
 export class ForestsService {
+  forestShow = new BehaviorSubject<Forest>(null);
+  forest: Forest;
   
   description = [
     "The Monteverde Cloud Forest Reserve (Reserva Biológica Bosque Nuboso Monteverde) is a Costa Rican reserve located along the Cordillera de Tilarán within the Puntarenas and Alajuela provinces. Named after the nearby town of Monteverde and founded in 1972,[1] the Reserve consists of over 10,500 hectares (26,000 acres) of cloud forest, the reserve is visited by roughly 70,000 visitors a year. The Reserve consists of 6 ecological zones, 90% of which are virgin forest.[2] An extremely high biodiversity, consisting of over 2,500 plant species (including the most orchid species in a single place), 100 species of mammals, 400 bird species, 120 reptilian and amphibian species, and thousands of insects, has drawn both scientists and tourists alike.",
@@ -23,6 +27,10 @@ export class ForestsService {
   
   addForests(name: string, location: string, img: string, id: number, description: string){
       this.forests.push(new Forest(name, location, img, id, description));
+  }
+  
+  showForest(forest: Forest) {
+    this.forestShow.next(forest);
   }
   
 
