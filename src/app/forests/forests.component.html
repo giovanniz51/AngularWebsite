@@ -6,61 +6,70 @@
     </div>
 </div>
 <div class="container" style="margin-bottom: 30px">
-  <h2 for="basic-url" style="color: #2ECC40;"><strong>Add new a Forest</strong></h2>
-  
-  <div class="row">
+  <ng-template #notAuthenticated>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12" style="padding: 30px;">
+          <h3 style="display: inline;">Login to Add a new Forest!</h3>
+          <button class="btn btn-primary" [routerLink]="['/login']" style="margin-left: 30px;">Login</button>
+        </div>
+      </div>  
+    </div>
+    </ng-template>
+  <div class="row" *ngIf="authService.isAuthenticated(); else notAuthenticated">
     <div class="col-xs-12">
+      <h2 for="basic-url" style="color: #2ECC40;"><strong>Add new a Forest</strong></h2>
       <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input 
-            class="form-control" 
-            type="text"
-            name="name" 
-            id="name"
-            ngModel
-            required
-            #name="ngModel">
-        <span class="help-block" *ngIf="!name.valid && name.touched">Please add a Name</span>
-      </div>
-      <div class="form-group">
-        <label for="imagePath">Image URL</label>
-        <input 
-            class="form-control" 
-            type="text" 
-            name="imagePath" 
-            id="imagePath"
-            ngModel
-            required
-            #image="ngModel">
-        <span class="help-block" *ngIf="!image.valid && image.touched">Please add a Image URL</span>
-      </div>     
-      <div class="form-group">
-        <label for="location">Location</label>
-        <input 
-            class="form-control" 
-            type="text" 
-            name="location" 
-            id="location"
-            ngModel
-            required
-            #location="ngModel">
-        <span class="help-block" *ngIf="!location.valid && location.touched">Please add a Location</span>
-      </div>      
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea
-            class="form-control" 
-            type="textarea" 
-            name="description" 
-            id="description"
-            ngModel
-            required
-            #description="ngModel"
-            rows="6"></textarea>
-        <span class="help-block" *ngIf="!description.valid && description.touched">Please add a Description</span>
-      </div>
-      <button type="submit" style="width: 100%; margin-top:10px; margin-bottom: 30px;" class="btn btn-success" [disabled]="!f.valid">Add</button>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input 
+              class="form-control" 
+              type="text"
+              name="name" 
+              id="name"
+              ngModel
+              required
+              #name="ngModel">
+          <span class="help-block" *ngIf="!name.valid && name.touched">Please add a Name</span>
+        </div>
+        <div class="form-group">
+          <label for="imagePath">Image URL</label>
+          <input 
+              class="form-control" 
+              type="text" 
+              name="imagePath" 
+              id="imagePath"
+              ngModel
+              required
+              #image="ngModel">
+          <span class="help-block" *ngIf="!image.valid && image.touched">Please add a Image URL</span>
+        </div>     
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input 
+              class="form-control" 
+              type="text" 
+              name="location" 
+              id="location"
+              ngModel
+              required
+              #location="ngModel">
+          <span class="help-block" *ngIf="!location.valid && location.touched">Please add a Location</span>
+        </div>      
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+              class="form-control" 
+              type="textarea" 
+              name="description" 
+              id="description"
+              ngModel
+              required
+              #description="ngModel"
+              rows="6"></textarea>
+          <span class="help-block" *ngIf="!description.valid && description.touched">Please add a Description</span>
+        </div>
+        <button type="submit" style="width: 100%; margin-top:10px; margin-bottom: 30px;" class="btn btn-success" [disabled]="!f.valid">Add</button>
       </form>
     </div>
   </div>

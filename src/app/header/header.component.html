@@ -10,8 +10,13 @@
       <li><a routerLinkActive="active" [routerLink]="['/forests']">Our Forests</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <ng-template [ngIf]="!authService.isAuthenticated()">
+        <li><a [routerLink]="['/register']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>     
+      </ng-template>
+
+      <li *ngIf="authService.isAuthenticated()"><a [routerLink]="['/login']" (click)="onLogout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li *ngIf="authService.isAuthenticated()"><a><span class="glyphicon glyphicon-user"></span> Welcome</a></li>
     </ul>
   </div>
 </nav>

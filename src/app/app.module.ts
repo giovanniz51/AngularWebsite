@@ -14,11 +14,16 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ForestsComponent } from './forests/forests.component';
 import { ForestsService } from './forests.service';
+import { AuthService } from './auth/auth.service';
 import { ForestEditComponent } from './forest-edit/forest-edit.component';
 import { ForestShowComponent } from './forest-show/forest-show.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
   { path: 'about', component: AboutComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'forests', component: ForestsComponent},
@@ -38,7 +43,9 @@ const appRoutes: Routes = [
     FooterComponent,
     ForestsComponent,
     ForestEditComponent,
-    ForestShowComponent
+    ForestShowComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -46,7 +53,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [ForestsService],
+  providers: [ForestsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
