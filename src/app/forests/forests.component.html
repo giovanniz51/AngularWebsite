@@ -66,8 +66,8 @@
   </div>
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-4" *ngFor="let forest of forests; let i of index">
-      <div class="thumbnail"  style="cursor: pointer;" (click)="onShowForest(i)">
+    <div class="col-sm-6 col-md-4" *ngFor="let forest of forests">
+      <div class="thumbnail"  style="cursor: pointer;" [routerLink]="[forest.id]">
         <img src="{{ forest.img }}" alt=" {{ forest.name }}">
        <div class="caption">
           <h3>{{ forest.name }}</h3>

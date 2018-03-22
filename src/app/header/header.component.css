@@ -1,3 +1,17 @@
 .navbar {
     margin-bottom: 0;
 }
+
+.navbar-default {
+    background-color: #dbe9d8;
+
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: black;
+    padding-left: 30px;
+}
+
+.navbar-default .navbar-brand {
+    color: black;
+}

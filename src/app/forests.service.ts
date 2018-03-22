@@ -3,6 +3,10 @@ import { Forest } from './forest';
 
 import { BehaviorSubject  } from 'rxjs/BehaviorSubject';
 
+import { Http, Headers, Response } from '@angular/http';
+
+import 'rxjs/Rx';
+
 @Injectable()
 export class ForestsService {
   forestShow = new BehaviorSubject<Forest>(null);
@@ -19,18 +23,24 @@ export class ForestsService {
                         new Forest( 'Schwarzwald Forest', 'Germany', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Blick_auf_den_Schluchsee_-_panoramio.jpg/1920px-Blick_auf_den_Schluchsee_-_panoramio.jpg', 3, this.description[2])
       ]
 
-  constructor() { }
+  constructor(private http: Http) { }
+  
+  saveForests(forests: any[]) {
+    return this.http.put('https://angular-website-15c4f.firebaseio.com/data.json', forests)
+  }
   
   getForests() {
-      return this.forests;
+      return this.http.get('https://angular-website-15c4f.firebaseio.com/data.json')
+        .map(
+            (response: Response) => {
+              const data = response.json();
+              return data;
+            }
+          );
   }
   
   addForests(name: string, location: string, img: string, id: number, description: string){
       this.forests.push(new Forest(name, location, img, id, description));
-  }
-  
-  showForest(forest: Forest) {
-    this.forestShow.next(forest);
   }
   
 

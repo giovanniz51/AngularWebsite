@@ -5,6 +5,7 @@ import { Forest } from '../forest';
 
 import { NgForm } from '@angular/forms';
 
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-forests',
@@ -24,27 +25,32 @@ export class ForestsComponent implements OnInit {
 
   constructor(private forestsService: ForestsService, private router: Router, private route: ActivatedRoute) { }
 
-    getForests() {
-      this.forests = this.forestsService.getForests();
-    }
 
 
   ngOnInit() {
     
-    this.getForests();
-    console.log(this.forests[0].id);
+    this.forests = this.forestsService.forests;
+    
+      this.forestsService.getForests()
+        .subscribe(
+        (forests: any[]) => {this.forests = forests}, (error) => {console.log(error);}    
+      );
+
+      console.log(this.forests);
 
   }
   
-  onShowForest(forest: Forest) {
-    this.forestsService.showForest(forest);
-    this.router.navigate([forest.id], {relativeTo: this.route});
-  }
-  
   onSubmit(form: NgForm) {
-    this.id = Math.floor(Math.random() * 20);
+    this.id = Math.floor(Math.random() * 10000);
     this.forestsService.addForests(form.value.name, form.value.location, form.value.imagePath, this.id, form.value.description);
+    this.forests = this.forestsService.forests;
+    this.forestsService.saveForests(this.forests)
+      .subscribe(
+        (response) => {console.log(response);}, (error) => {console.log(error);}  
+      );
+
     form.reset();
+
   }
   
 }

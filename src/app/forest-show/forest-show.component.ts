@@ -12,19 +12,40 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ForestShowComponent implements OnInit, OnDestroy {
   
-  forest: Forest;
+  
+  
+  forests: Forest[];
   subscription: Subscription;
+  id;
 
-  constructor(private forestsService: ForestsService ) { }
+  forest: Forest;
+
+  constructor(private forestsService: ForestsService, private route: ActivatedRoute ) { }
 
   ngOnInit() {
-    this.subscription = this.forestsService.forestShow
+    this.subscription = this.route.params
       .subscribe(
-        (forest) => {
-          this.forest = forest;
+        (params: Params) => {
+          this.id = +params['id']; //(+) converts string 'id' to a number
           
         }  
       )
+    this.forestsService.getForests()
+      .subscribe(
+        (forests: any[]) => { 
+          this.forests = forests; 
+          
+          this.forest = this.forests.find( 
+            (forest) => { return forest.id === this.id }
+          );
+          console.log(this.forest) 
+          
+        }, 
+        (error) => {
+          console.log(error);
+          
+        }  
+      );
 
   }
   
