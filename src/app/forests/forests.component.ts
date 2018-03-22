@@ -24,7 +24,7 @@ export class ForestsComponent implements OnInit {
   
   
 
-  constructor(private forestsService: ForestsService, private router: Router, private route: ActivatedRoute, private authService: AuthService) { }
+  constructor(private forestsService: ForestsService, private router: Router, private route: ActivatedRoute, public authService: AuthService) { }
 
 
 
