@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 
 
+
 @Injectable()
 export class AuthService {
-
+    
   token: string;
   constructor(private router: Router) { }
   

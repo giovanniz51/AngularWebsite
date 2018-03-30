@@ -20,17 +20,10 @@ import { ForestShowComponent } from './forest-show/forest-show.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
-  { path: 'about', component: AboutComponent},
-  { path: 'contact', component: ContactComponent},
-  { path: 'forests', component: ForestsComponent},
-  { path: 'forests/:id', component: ForestShowComponent},
-  { path: 'forests/:id/edit', component: ForestEditComponent}
-  
-  ];
+import { ForestRoutes } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { AuthGuard } from './guards/auth.guard';
 
 
 @NgModule({
@@ -45,15 +38,16 @@ const appRoutes: Routes = [
     ForestEditComponent,
     ForestShowComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    ForestRoutes,
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [ForestsService, AuthService],
+  providers: [ForestsService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

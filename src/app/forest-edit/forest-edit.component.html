@@ -1,3 +1,62 @@
-<p>
-  forest-edit works!
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+<div class="alert alert-success" role="alert" *ngIf="editState" style="margin-top: 20px">
+  Forest was updated <a [routerLink]="['/dashboard']">Go to dashboard</a>!
+</div>
+<h2 for="basic-url" style="color: #2ECC40;"><strong>Edit Forest</strong></h2>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input 
+              class="form-control" 
+              type="text"
+              name="name" 
+              id="name"
+              [(ngModel)]="forestName"
+              required
+              #name="ngModel">
+          <span class="help-block" *ngIf="!name.valid">Please add a Name</span>
+        </div>
+        <div class="form-group">
+          <label for="imagePath">Image URL</label>
+          <input 
+              class="form-control" 
+              type="text" 
+              name="imagePath" 
+              id="imagePath"
+              [(ngModel)]="forestImg"
+              required
+              #image="ngModel">
+          <span class="help-block" *ngIf="!image.valid">Please add a Image URL</span>
+        </div>     
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input 
+              class="form-control" 
+              type="text" 
+              name="location" 
+              id="location"
+              [(ngModel)]="forestLocation"
+              required
+              #location="ngModel">
+          <span class="help-block" *ngIf="!location.valid">Please add a Location</span>
+        </div>      
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+              class="form-control" 
+              type="textarea" 
+              name="description" 
+              id="description"
+              [(ngModel)]="forestDescription"
+              required
+              #description="ngModel"
+              rows="6"></textarea>
+          <span class="help-block" *ngIf="!description.valid">Please add a Description</span>
+        </div>
+        <button type="submit" style="width: 100%; margin-top:10px; margin-bottom: 30px;" class="btn btn-success" [disabled]="!f.valid">Save</button>
+      </form> 
+        </div>
+    </div>
+</div>

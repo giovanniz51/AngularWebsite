@@ -1,0 +1,82 @@
+<div class="container" style="margin-bottom: 30px">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 for="basic-url" style="color: #2ECC40;"><strong>Add new a Forest</strong></h2>
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input 
+              class="form-control" 
+              type="text"
+              name="name" 
+              id="name"
+              ngModel
+              required
+              #name="ngModel">
+          <span class="help-block" *ngIf="!name.valid && name.touched">Please add a Name</span>
+        </div>
+        <div class="form-group">
+          <label for="imagePath">Image URL</label>
+          <input 
+              class="form-control" 
+              type="text" 
+              name="imagePath" 
+              id="imagePath"
+              ngModel
+              required
+              #image="ngModel">
+          <span class="help-block" *ngIf="!image.valid && image.touched">Please add a Image URL</span>
+        </div>     
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input 
+              class="form-control" 
+              type="text" 
+              name="location" 
+              id="location"
+              ngModel
+              required
+              #location="ngModel">
+          <span class="help-block" *ngIf="!location.valid && location.touched">Please add a Location</span>
+        </div>      
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+              class="form-control" 
+              type="textarea" 
+              name="description" 
+              id="description"
+              ngModel
+              required
+              #description="ngModel"
+              rows="6"></textarea>
+          <span class="help-block" *ngIf="!description.valid && description.touched">Please add a Description</span>
+        </div>
+        <button type="submit" style="width: 100%; margin-top:10px; margin-bottom: 30px;" class="btn btn-success" [disabled]="!f.valid">Add</button>
+      </form>
+    </div>
+  </div>
+
+<table class="table" *ngFor="let forest of forests">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th>IMG URL</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ forest.id}} </td>
+        <td>{{ forest.location }}</td>
+        <td>{{ forest.name }}</td>
+        <td>{{ forest.description }}</td>
+        <td><img width="600" class="img-responsive" [src]="forest.img" alt="{{ forest.img }}"/></td>
+        <td><button class="btn btn-primary" (click)="onEditForest(forest)">Edit</button><br><button class="btn btn-danger"(click)="onDelete(forest)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

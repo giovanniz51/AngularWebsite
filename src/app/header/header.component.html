@@ -15,6 +15,7 @@
         <li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>     
       </ng-template>
 
+      <li *ngIf="authService.isAuthenticated()"><a [routerLink]="['/dashboard']"><span class="glyphicon glyphicon-dashboard"></span>Dashboard</a></li>
       <li *ngIf="authService.isAuthenticated()"><a [routerLink]="['/login']" (click)="onLogout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       <li *ngIf="authService.isAuthenticated()"><a><span class="glyphicon glyphicon-user"></span> Welcome</a></li>
     </ul>

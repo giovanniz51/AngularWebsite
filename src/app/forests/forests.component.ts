@@ -30,7 +30,7 @@ export class ForestsComponent implements OnInit {
 
   ngOnInit() {
     
-    this.forests = this.forestsService.forests;
+    
     
       this.forestsService.getForests()
         .subscribe(
@@ -41,17 +41,6 @@ export class ForestsComponent implements OnInit {
 
   }
   
-  onSubmit(form: NgForm) {
-    this.id = Math.floor(Math.random() * 10000);
-    this.forestsService.addForests(form.value.name, form.value.location, form.value.imagePath, this.id, form.value.description);
-    this.forests = this.forestsService.forests;
-    this.forestsService.saveForests(this.forests)
-      .subscribe(
-        (response) => {console.log(response);}, (error) => {console.log(error);}  
-      );
 
-    form.reset();
-
-  }
   
 }
