@@ -36,6 +36,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
     // other imports here
+    //test
   ],
   exports:[RouterModule]
 
